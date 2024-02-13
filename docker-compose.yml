@@ -1,0 +1,31 @@
+version: '3.0'
+
+services:
+  nginx-service:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - './public:/var/www/systemeio/public'
+      - './docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro'
+    depends_on:
+      - php-service
+
+  php-service:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    ports:
+      - "9001:9000"
+    volumes:
+      - .:/var/www/systemeio
+
+###> doctrine/doctrine-bundle ###
+  db:
+    image: postgres:16-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-systemeio}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-pwd}
+      POSTGRES_USER: ${POSTGRES_USER:-systemeio}
