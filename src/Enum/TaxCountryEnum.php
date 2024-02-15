@@ -4,6 +4,12 @@ namespace App\Enum;
 
 use MyCLabs\Enum\Enum;
 
+/**
+ * @method static TaxCountryEnum IT()
+ * @method static TaxCountryEnum DE()
+ * @method static TaxCountryEnum FR()
+ * @method static TaxCountryEnum GR()
+ */
 class TaxCountryEnum extends Enum
 {
     public const DE = 'DE';
