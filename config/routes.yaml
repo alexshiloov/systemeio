@@ -1,3 +1,17 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+
+api_calculate_price:
+    path: /calculate-price
+    defaults:
+      _controller: App\Controller\PriceController::calculateAction
+      anonymous: true
+    methods: ['POST']
+
+api_purchase:
+    path: /purchase
+    defaults:
+        _controller: App\Controller\PurchaseController::purchaseAction
+        anonymous: true
+    methods: ['POST']
