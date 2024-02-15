@@ -1,0 +1,59 @@
+POST http://localhost/calculate-price
+accept: application/json
+Content-Type: application/json
+
+{
+    "product": 1,
+    "taxNumber": "DE123456789",
+    "couponCode": "D5"
+}
+
+###
+
+POST http://localhost/calculate-price
+accept: application/json
+Content-Type: application/json
+
+{
+    "product": 2,
+    "taxNumber": "DE123456789",
+    "couponCode": "P20"
+}
+
+###
+
+POST http://localhost/calculate-price
+accept: application/json
+Content-Type: application/json
+
+{
+    "product": 3,
+    "taxNumber": "IT34123456789",
+    "couponCode": "P10"
+}
+
+###
+
+POST http://localhost/purchase
+accept: application/json
+Content-Type: application/json
+
+{
+    "product": 1,
+    "taxNumber": "DE123456789",
+    "couponCode": "D5",
+    "paymentProcessor": "stripe"
+}
+
+###
+
+POST http://localhost/purchase
+accept: application/json
+Content-Type: application/json
+
+{
+    "product": 3,
+    "taxNumber": "DE123456789",
+    "couponCode": "P10",
+    "paymentProcessor": "paypal"
+}
